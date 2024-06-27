@@ -13,5 +13,6 @@ peripheral used: UART(115200 baud), DMA, SysTick, GPIO<br>
 
 ## Required tools to build this project
 - CMake
+- Makefile
 - arm-none-eabi toolchains
 - CMSIS and HAL/LL driver for STM32L053R8T6
