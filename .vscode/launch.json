@@ -1,0 +1,66 @@
+// from https://github.com/prtzl/Embedded_videos/blob/master/045_BUILDING-PT4/test-f407vg/.vscode/launch.json
+{
+    "version": "0.2.0",
+    "projectName": "debugger",
+    "configurations": [
+        {
+            "name": "JLink launch",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/build/Debug/echo.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "device": "STM32L053R8",
+            "interface": "swd",
+            "runToEntryPoint": "main", // else it starts at reset handler - not interested
+            "preLaunchTask": "CMake build debug", // configured in tasks.json
+            "svdFile": "${workspaceRoot}/svd/STM32L053.svd", // Include svd to watch device peripherals
+            "swoConfig":
+            {
+                "enabled": true,
+                "cpuFrequency": 160000000,
+                "swoFrequency": 4000000,
+                "source": "probe",
+                "decoders":
+                [
+                    {
+                        "label": "ITM port 0 output",
+                        "type": "console",
+                        "port": 0,
+                        "showOnStartup": true,
+                        "encoding": "ascii"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "JLink attach",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/build/Debug/echo.elf",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "device": "STM32L053R8",
+            "interface": "swd",
+            "runToEntryPoint": "main", // else it starts at reset handler - not interested
+            "svdFile": "${workspaceRoot}/svd/STM32L053.svd", // Include svd to watch device peripherals
+            "swoConfig":
+            {
+                "enabled": true,
+                "cpuFrequency": 160000000,
+                "swoFrequency": 4000000,
+                "source": "probe",
+                "decoders":
+                [
+                    {
+                        "label": "ITM port 0 output",
+                        "type": "console",
+                        "port": 0,
+                        "showOnStartup": true,
+                        "encoding": "ascii"
+                    }
+                ]
+            }
+        }
+    ]
+}
