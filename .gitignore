@@ -1,6 +1,5 @@
 .cache/
 build/
-.metadata/
 .settings/
-svd/
 external/
+svd/

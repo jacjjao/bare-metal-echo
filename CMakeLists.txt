@@ -50,7 +50,7 @@ add_library(HAL STATIC ${HAL_SOURCES})
 target_include_directories(HAL 
 PUBLIC 
 	${HAL_HEADER}
-	external/CMSIS/Core/Include
+	external/CMSIS/Core
 	)
 
 file (GLOB PROJECT_SOURCES Sources/*.c Startup/*.s)
